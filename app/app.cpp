@@ -104,6 +104,8 @@ polygon::~polygon() {
 	delete[] p;
 }
 
+
+//Vježba 4
 uint32_t insect::legs() const {
 	return 6;
 }
@@ -149,4 +151,43 @@ std::string leg_counter::add_animal(animal* a) {
 
 uint32_t leg_counter::legs() const {
 	return size;
+}
+
+//Vježba 5
+double operator "" _inch(unsigned long long inc) {
+	return inc * 2.54;
+}
+
+double operator "" _eur(unsigned long long eur) {
+	return eur * 7.5345;
+}
+
+tire::tire(double sz) {
+	size = sz;
+}
+
+double tire::diameter() const {
+	return size;
+}
+
+vehicle::vehicle(int xear) {
+	yr = xear;
+}
+
+int vehicle::year() const{
+	return yr;
+}
+
+product::product(double pri) {
+	pr = pri;
+}
+
+double product::price() const {
+	return pr;
+}
+
+car::car(int xear, double pri, double sz) : vehicle(xear), product(pri), guma(sz) {};
+
+double car::tire_diameter() const{
+	return guma.diameter();
 }

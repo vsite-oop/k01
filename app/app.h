@@ -20,9 +20,9 @@ public:
 class windows : public operating_system {
 public:
 	windows();
-	std::string release() const;
-	std::string build() const;
-	int space() const;
+	std::string release() const override;
+	std::string build() const override;
+	int space() const override;
 };
 
 class string {
@@ -109,4 +109,39 @@ private:
 public:
 	uint32_t legs() const;
 	std::string add_animal(animal*);
+};
+
+//Vježba 5
+double operator "" _inch(unsigned long long inc);
+
+double operator "" _eur(unsigned long long eur);
+
+class tire {
+	double size;
+public:
+	tire(double sz);
+	double diameter() const;
+};
+
+class vehicle {
+private:
+	int yr;
+public:
+	vehicle(int xear);
+	int year() const;
+};
+
+class product {
+private:
+	double pr;
+public:
+	product(double pri);
+	double price() const;
+};
+
+class car : public vehicle, public product {
+	tire guma;
+public:
+	car(int xear, double pri, double sz);
+	double tire_diameter() const;
 };

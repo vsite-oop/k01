@@ -37,5 +37,11 @@ int main()
 
 	//3. zadatak
 	package_impl pk;
-	std::cout << pk.naziv() << pk.verzija() << pk.godina();
+	std::cout << pk.naziv() << pk.verzija() << pk.godina() << std::endl;
+	const char* s = "123Zagreb";
+	char* enptr;
+	int a = strtol(s, &enptr, 10);
+	std::cout << a;
 }
+
+
