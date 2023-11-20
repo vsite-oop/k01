@@ -73,3 +73,80 @@ string string::rev_sub(int start, int len) const{
 void string::print(std::ostream& os) const{
 	os << vrijednost;
 }
+
+
+/* Kolokvij 2021/2022 */
+//1. zadatak
+bool is_flush(const char* lista_karata[5]) {
+	char boja = lista_karata[0][0];
+	std::cout << "Boja:" << boja << std::endl;
+	for (int i = 1; i < 5; i++) {
+		std::cout << lista_karata[i][0] << std::endl;
+		if (boja != lista_karata[i][0]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+//2. zadatak
+
+polygon::polygon(int num) {
+	n = num;
+}
+
+polygon::polygon(const polygon& other) {
+	n = other.n;
+	p = other.p;
+}
+
+polygon::~polygon() {
+	delete[] p;
+}
+
+uint32_t insect::legs() const {
+	return 6;
+}
+
+uint32_t spider::legs() const {
+	return 8;
+}
+
+uint32_t bird::legs() const {
+	return 2;
+}
+
+std::string cockroach::species() const {
+	return "cockroach";
+}
+
+std::string tarantula::species() const {
+	return "tarantula";
+}
+
+std::string sparrow::species() const {
+	return "sparrow";
+}
+
+std::unique_ptr<animal> animal_factory(int which) {
+	switch (which)
+	{
+	case 1:
+		return std::make_unique<cockroach>();
+	case 2:
+		return std::make_unique<sparrow>();
+	case 3:
+		return std::make_unique<tarantula>();
+	default:
+		return nullptr;
+	}
+}
+
+std::string leg_counter::add_animal(animal* a) {
+	size += a->legs();
+	return a->species();
+}
+
+uint32_t leg_counter::legs() const {
+	return size;
+}
